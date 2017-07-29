@@ -36,7 +36,7 @@ class Player extends FlxSprite
 	override public function update(elapsed:Float):Void {
 		cantGetOutOfMap();
 		super.update(elapsed);
-		negativeNotAllowed();
+		negativePowerNotAllowed();
 	}
 	
 	public function moveLeft():Void {
@@ -112,7 +112,7 @@ class Player extends FlxSprite
 		return (this._power > 0);
 	}
 	
-	private function negativeNotAllowed():Void {
+	private function negativePowerNotAllowed():Void {
 		if (!hasPowerLeft())
 			this._power = 0;
 	}
@@ -124,4 +124,12 @@ class Player extends FlxSprite
 		if (this.x > (max_x))
 			this.x = max_x;
 	}
+	
+	//private function isOutside(): Void {
+		//if (this.y > Blackboard.TILE_HEIGHT * 64) {
+			//for (px in 0 ... this.x) {
+				//if ()
+			//}
+		//}
+	//}
 }
