@@ -4,13 +4,13 @@
 	- [ ] map tiles from terrain_tilemap
 	- [ ] placing hero and decals from obj_tilemap
 	- [ ] placing lights from light_tilemap
-- [ ] polish HUD
+- [ ] Polish HUD
 - [ ] Refactoring ?
 - [ ] Bug checking ?
 - [ ] Optimization ?
 		
 ### 2D art :
-- [ ] Finally chose between 8x8px and 16x16px tiles !
+- [ ] Finally choose between 8x8px and 16x16px tiles !
 - [ ] Hero Robot animation
 - [ ] Timmy animation
 - [ ] Terrain tileset
@@ -21,12 +21,12 @@
 	- [ ] placeholder for lights
 	
 ### Audio :
-- [ ] battery is charging sound
-- [ ] annoying timmy sound**s**
-- [ ] hovering sound
-- [ ] turbo sound
-- [ ] super jump sound
-- [ ] moving sound
+- [ ] Battery is charging sound
+- [ ] Annoying timmy sound**s**
+- [ ] Hovering sound
+- [ ] Turbo sound
+- [ ] Super jump sound
+- [ ] Moving sound
 - [ ] Some music ?
 	
 ### Mapping :
