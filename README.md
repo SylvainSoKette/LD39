@@ -9,7 +9,7 @@ You'll also need :
 * lime 2.9.1
 * openfl 3.6.1
 
-After installing haxe (Windows users, make sure that Haxe and Haxelib are in your %PATH% by just trying to run 'haxe' and 'haxeilb' in your commant prompt)
+After installing haxe (Windows users, make sure that Haxe and Haxelib are in your %PATH% by just trying to run 'haxe' and 'haxelib' in your command prompt)
 ```
 haxelib install flixel
 ```
@@ -20,7 +20,7 @@ haxelib install lime
 haxelib install openfl
 ```
 
-**Super important** part ! :
+But this part is **super important** and not optional ! :
 ```
 haxelib set lime 2.9.1
 haxelib set openfl 3.6.1
