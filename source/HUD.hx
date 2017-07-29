@@ -6,19 +6,21 @@ import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
 
+import SkText;
+
 /**
  * ...
  * @author SoKette
  */
 class HUD extends FlxTypedGroup<FlxSprite>
 {
-	private var _txtPower:FlxText;
+	private var _txtPower:SkText;
 	
 	public function new() 
 	{
 		super();
 		
-		_txtPower = new FlxText(0, 0, 0, "bap", 8);
+		_txtPower = new SkText("bap", 8, false);
 		add(_txtPower);
 		
 		forEach(function(spr:FlxSprite)

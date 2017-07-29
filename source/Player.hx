@@ -17,8 +17,7 @@ class Player extends FlxSprite
 	private var _direction:Bool;
 	private var _blinkPower:Float = 3.5;
 	
-	public function new(?X:Float=0, ?Y:Float=0) 
-	{
+	public function new(?X:Float=0, ?Y:Float=0) {
 		super(X, Y);
 		
 		this.makeGraphic(Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT, FlxColor.CYAN);
@@ -35,6 +34,11 @@ class Player extends FlxSprite
 	
 	override public function update(elapsed:Float):Void {
 		cantGetOutOfMap();
+		
+		if (_power > 1.0) {
+			_power = 1.0;
+		}
+		
 		super.update(elapsed);
 		negativePowerNotAllowed();
 	}
@@ -104,7 +108,7 @@ class Player extends FlxSprite
 		return this._power;
 	}
 	
-	private function drainPower(amount:Float):Void {
+	public function drainPower(amount:Float):Void {
 		this._power -= amount;
 	}
 	
@@ -124,12 +128,4 @@ class Player extends FlxSprite
 		if (this.x > (max_x))
 			this.x = max_x;
 	}
-	
-	//private function isOutside(): Void {
-		//if (this.y > Blackboard.TILE_HEIGHT * 64) {
-			//for (px in 0 ... this.x) {
-				//if ()
-			//}
-		//}
-	//}
 }

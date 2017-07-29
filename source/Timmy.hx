@@ -12,8 +12,7 @@ class Timmy extends FlxSprite
 {
 	private var _grabbed:Bool;
 	
-	public function new(?X:Float=0, ?Y:Float=0) 
-	{
+	public function new(?X:Float=0, ?Y:Float=0) {
 		super(X, Y);
 		
 		this.makeGraphic(Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT, FlxColor.YELLOW);

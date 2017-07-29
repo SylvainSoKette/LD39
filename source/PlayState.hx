@@ -17,49 +17,61 @@ class PlayState extends FlxState
 	//private var _background:FlxSprite;
 	private var _background:FlxTypedGroup<FlxSprite>;
 	private var _terrainmap:FlxTilemap;
+	private var _objectmap:FlxTilemap;
+	
+	private var _lightmap:FlxTilemap;
+	private var _lightlayer:FlxTypedGroup<Light>;
+	
 	private var _player:Player;
 	private var _hud:HUD;
 	private var _timmy:Timmy;
 	
-	override public function create():Void
-	{
+	override public function create():Void {
 		FlxG.mouse.visible = false;
 		
 		//background
 		//bgColor = 0xff1e1e1e;
 		//_background = new FlxSprite();
 		// why in hell can't I load a png on windows/neko build ??? too big ?
+		// I never had this limitation before, strange !
 		//_background.loadGraphic("assets/images/background1.png", false, 512, 512);
 		//_background.loadGraphic("assets/images/bg_10.png", false, 256, 256);
 		//add(_background);
 		_background = new FlxTypedGroup<FlxSprite>();
 		initBackground();
-		add(_background);
 		
 		// map
 		_terrainmap = new FlxTilemap();
+		_objectmap = new FlxTilemap();
+		_lightmap = new FlxTilemap();
+		_lightlayer = new FlxTypedGroup<Light>();
 		initMap();
-		add(_terrainmap);
 		
 		// timmy
 		_timmy = new Timmy(128, 8);
-		add(_timmy);
-		
 		// player
 		_player = new Player(32 , 8);
-		add(_player);
 		camera.follow(_player, FlxCameraFollowStyle.PLATFORMER);
 		camera.setScrollBoundsRect(0, 0, 64 * Blackboard.TILE_WIDTH , 256 * Blackboard.TILE_HEIGHT);
 		
 		// HUD
 		_hud = new HUD();
+		
+		// sprite layers
+		add(_background);
+		add(_terrainmap);
+		add(_objectmap);
+		
+		add(_timmy);
+		add(_player);
+		
+		add(_lightlayer);
 		add(_hud);
 		
 		super.create();
 	}
 
-	override public function update(elapsed:Float):Void
-	{
+	override public function update(elapsed:Float):Void {
 		FlxG.collide(_terrainmap, _player);
 		FlxG.collide(_terrainmap, _timmy);
 		
@@ -67,6 +79,10 @@ class PlayState extends FlxState
 		
 		if (_timmy.isGrabbed()) {
 			_timmy.moveTimmy(_player.x, (_player.y - (Blackboard.TILE_HEIGHT / 2)));
+		}
+		
+		if (_player.overlaps(_lightlayer)) {
+			_player.drainPower( -0.0007);
 		}
 		
 		_hud.updateHUD(_player.getPower());
@@ -96,7 +112,7 @@ class PlayState extends FlxState
 				_timmy.grab();
 			}
 		}
-		if (FlxG.keys.pressed.SHIFT && _player.isTouching(FlxObject.FLOOR))
+		if (FlxG.keys.pressed.SHIFT)
 			_player.turbo();
 		if (FlxG.keys.justPressed.SPACE && _player.isTouching(FlxObject.FLOOR))
 			_player.turboJump();
@@ -110,10 +126,24 @@ class PlayState extends FlxState
 		FlxG.worldBounds.right = Blackboard.MAP_WIDTH * Blackboard.TILE_WIDTH;
 		FlxG.worldBounds.top = 0;
 		FlxG.worldBounds.bottom = Blackboard.MAP_HEIGHT * Blackboard.TILE_HEIGHT;
+		
+		_lightmap.loadMapFromCSV(AssetPaths.map_obj__csv, AssetPaths.decals__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
+		for (ty in 0 ... _lightmap.heightInTiles) {
+			for (tx in 0 ... _lightmap.widthInTiles) {
+				var tileValue:Int = _lightmap.getTile(tx, ty);
+				switch (tileValue) {
+					case 18:
+						_lightmap.setTile(tx, ty, -1);
+						_lightlayer.add(new Light(tx * Blackboard.TILE_WIDTH, ty * Blackboard.TILE_HEIGHT, FlxColor.fromRGB(255, 255, 153, 32)));
+					default :
+						trace("Nothing to load on tile X:"+ tx +" Y:"+ ty);
+				}
+			}
+		}
 	}
 	
 	private function initBackground():Void {
-		var x_div:Int = 8;
+		var x_div:Int = 1;
 		var y_div:Int = 40;
 		
 		var size_x:Int = Math.round((Blackboard.TILE_WIDTH * Blackboard.MAP_WIDTH) / x_div);
@@ -135,6 +165,5 @@ class PlayState extends FlxState
 				);
 			}
 		}
-		
 	}
 }

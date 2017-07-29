@@ -9,8 +9,7 @@ import flixel.math.FlxMath;
 
 class MenuState extends FlxState
 {
-	override public function create():Void
-	{
+	override public function create():Void {
 		FlxG.mouse.visible = false;
 		
 		FlxG.switchState(new PlayState());
@@ -18,8 +17,7 @@ class MenuState extends FlxState
 		super.create();
 	}
 
-	override public function update(elapsed:Float):Void
-	{
+	override public function update(elapsed:Float):Void {
 		super.update(elapsed);
 	}
 }
