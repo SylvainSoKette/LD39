@@ -4,6 +4,7 @@
 		- [ ] map tiles from terrain_tilemap
 		- [ ] placing hero and decals from obj_tilemap
 		- [ ] placing lights from light_tilemap
+	- [ ] polish HUD
 	- [ ] Refactoring ?
 	- [ ] Bug checking ?
 	- [ ] Optimization ?
