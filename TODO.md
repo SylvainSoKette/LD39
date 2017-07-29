@@ -1,4 +1,7 @@
 ### Programming :
+- [ ] Intro screen
+- [ ] Explain screen
+- [ ] Win screen
 - [ ] Win/lose conditions !
 - [ ] Implement sound
 - [ ] Generating map from everything
@@ -12,6 +15,9 @@
 - [ ] Optimization ?
 		
 ### 2D art :
+- [ ] Intro screen
+- [ ] Explain screen
+- [ ] Win screen
 - [ ] Finally choose between 8x8px and 16x16px tiles !
 - [ ] Hero Robot animation
 - [ ] Timmy animation
