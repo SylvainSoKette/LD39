@@ -27,6 +27,7 @@
 	- [ ] outside characters
 	- [ ] radioactive stuff
 	- [ ] placeholder for lights
+- [ ] Add game icon
 - [ ] Add more tiles to terrain tileset
 	
 ### Audio :
