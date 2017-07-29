@@ -128,12 +128,12 @@ class PlayState extends FlxState
 		FlxG.worldBounds.top = 0;
 		FlxG.worldBounds.bottom = Blackboard.MAP_HEIGHT * Blackboard.TILE_HEIGHT;
 		
-		_lightmap.loadMapFromCSV(AssetPaths.map_obj__csv, AssetPaths.decals__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
+		_lightmap.loadMapFromCSV(AssetPaths.map_light__csv, AssetPaths.tileset__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
 		for (ty in 0 ... _lightmap.heightInTiles) {
 			for (tx in 0 ... _lightmap.widthInTiles) {
 				var tileValue:Int = _lightmap.getTile(tx, ty);
 				switch (tileValue) {
-					case 18:
+					case 45:
 						_lightmap.setTile(tx, ty, -1);
 						_lightlayer.add(new Light(tx * Blackboard.TILE_WIDTH, ty * Blackboard.TILE_HEIGHT, FlxColor.fromRGB(255, 255, 153, 32)));
 					default :

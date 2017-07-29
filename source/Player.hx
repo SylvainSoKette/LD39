@@ -33,14 +33,14 @@ class Player extends FlxSprite
 		this.drag.x = this.drag.y = _moveSpeed * 16;
 		this.acceleration.y = 800;
 		this.maxVelocity.x = _moveSpeed;
-		this.maxVelocity.y = 200;
+		this.maxVelocity.y = 400;
 		
 		this._direction = true; // true is left, false is right
 		this._power = 1.0;
 		
 		_sndTurboJump = FlxG.sound.load(AssetPaths.turbojump__wav);
 		_sndTurbo = FlxG.sound.load(AssetPaths.turbo__wav);
-		_sndHover = FlxG.sound.load(AssetPaths.hover__wav);
+		_sndHover = FlxG.sound.load(AssetPaths.hover2__wav);
 		//_sndMove = FlxG.sound.load(AssetPaths.move__wav);
 		_sndBlink = FlxG.sound.load(AssetPaths.blink2__wav);
 	}
@@ -96,7 +96,7 @@ class Player extends FlxSprite
 		if (hasPowerLeft()) {
 			FlxG.camera.flash(FlxColor.ORANGE, 0.25);
 			FlxG.camera.shake(0.025, 0.25);
-			this.velocity.y = -this.maxVelocity.y;
+			this.velocity.y = - this.maxVelocity.y;
 			this.drainPower(0.1);
 			_sndTurboJump.play();
 		}

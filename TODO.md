@@ -31,7 +31,7 @@
 ### Audio :
 - [ ] Battery is charging sound
 - [ ] Annoying timmy sound**s**
-- [ ] Hovering sound
+- [x] Hovering sound
 - [ ] Turbo sound
 - [x] Super jump sound
 - [ ] Moving sound
