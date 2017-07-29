@@ -27,8 +27,9 @@
 - [ ] Annoying timmy sound**s**
 - [ ] Hovering sound
 - [ ] Turbo sound
-- [ ] Super jump sound
+- [x] Super jump sound
 - [ ] Moving sound
+- [x] Blink sound
 - [ ] Some music ?
 	
 ### Mapping :

@@ -3,6 +3,7 @@ package;
 import flixel.FlxG;
 import flixel.util.FlxColor;
 import flixel.FlxSprite;
+import flixel.system.FlxSound;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 
 /**
@@ -17,6 +18,12 @@ class Player extends FlxSprite
 	private var _direction:Bool;
 	private var _blinkPower:Float = 3.5;
 	
+	private var _sndTurboJump:FlxSound;
+	private var _sndTurbo:FlxSound;
+	private var _sndHover:FlxSound;
+	private var _sndMove:FlxSound;
+	private var _sndBlink:FlxSound;
+	
 	public function new(?X:Float=0, ?Y:Float=0) {
 		super(X, Y);
 		
@@ -30,6 +37,12 @@ class Player extends FlxSprite
 		
 		this._direction = true; // true is left, false is right
 		this._power = 1.0;
+		
+		_sndTurboJump = FlxG.sound.load(AssetPaths.turbojump__wav);
+		_sndTurbo = FlxG.sound.load(AssetPaths.turbo__wav);
+		_sndHover = FlxG.sound.load(AssetPaths.hover__wav);
+		//_sndMove = FlxG.sound.load(AssetPaths.move__wav);
+		_sndBlink = FlxG.sound.load(AssetPaths.blink2__wav);
 	}
 	
 	override public function update(elapsed:Float):Void {
@@ -47,6 +60,7 @@ class Player extends FlxSprite
 		if (hasPowerLeft()) {
 			this.acceleration.x = -this.drag.x;
 			this.drainPower(0.0005);
+			//_sndMove.play();
 		}
 		this._direction = true;
 	}
@@ -55,6 +69,7 @@ class Player extends FlxSprite
 		if (hasPowerLeft()) {
 			this.acceleration.x = this.drag.x;
 			this.drainPower(0.0005);
+			//_sndMove.play();
 		}
 		this._direction = false;
 	}
@@ -63,7 +78,8 @@ class Player extends FlxSprite
 		if (hasPowerLeft()) {
 			FlxG.camera.shake(0.005, 0.05);
 			this.velocity.x *= 3;
-			this.drainPower(0.001);	
+			this.drainPower(0.001);
+			_sndTurbo.play();
 		}
 	}
 	
@@ -72,6 +88,7 @@ class Player extends FlxSprite
 			FlxG.camera.shake(0.002, 0.05);
 			this.velocity.y = -25;
 			this.drainPower(0.001);
+			_sndHover.play();
 		}
 	}
 	
@@ -81,6 +98,7 @@ class Player extends FlxSprite
 			FlxG.camera.shake(0.025, 0.25);
 			this.velocity.y = -this.maxVelocity.y;
 			this.drainPower(0.1);
+			_sndTurboJump.play();
 		}
 	}
 	
@@ -101,6 +119,7 @@ class Player extends FlxSprite
 				}
 			}
 			this.drainPower(0.2);
+			_sndBlink.play();
 		}
 	}
 	

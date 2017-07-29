@@ -4,6 +4,7 @@ import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.FlxObject;
+import flixel.system.FlxSound;
 import flixel.ui.FlxButton;
 import flixel.text.FlxText;
 import flixel.tile.FlxTilemap;
@@ -82,7 +83,7 @@ class PlayState extends FlxState
 		}
 		
 		if (_player.overlaps(_lightlayer)) {
-			_player.drainPower( -0.0007);
+			_player.drainPower( -0.0012);
 		}
 		
 		_hud.updateHUD(_player.getPower());
