@@ -4,6 +4,7 @@ Everything will most likely change a lot until the Compo deadline, but you can a
 
 ## Requirements
 The game was built using [Haxe](https://haxe.org/download/) 3.4.1
+
 You'll also need :
 * flixel 4.3.0
 * lime 2.9.1
@@ -34,6 +35,7 @@ haxelib run lime run "Project.xml" neko -debug
 
 ## Compile
 Also in the game directory, you can build the game to your platform
+
 (You'll need a compiler installed for that)
 ```
 haxelib run lime run "Project.xml" PLATFORM -debug
