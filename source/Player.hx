@@ -86,8 +86,8 @@ class Player extends FlxSprite
 	public function hover():Void {
 		if (hasPowerLeft()) {
 			FlxG.camera.shake(0.002, 0.05);
-			this.velocity.y = -25;
-			this.drainPower(0.001);
+			this.velocity.y = -50;
+			this.drainPower(0.002);
 			_sndHover.play();
 		}
 	}

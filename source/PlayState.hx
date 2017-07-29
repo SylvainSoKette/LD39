@@ -29,6 +29,7 @@ class PlayState extends FlxState
 	
 	override public function create():Void {
 		FlxG.mouse.visible = false;
+		FlxG.sound.volume = 0.5;
 		
 		//background
 		//bgColor = 0xff1e1e1e;

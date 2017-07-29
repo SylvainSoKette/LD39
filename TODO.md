@@ -18,15 +18,16 @@
 - [ ] Intro screen
 - [ ] Explain screen
 - [ ] Win screen
-- [ ] Finally choose between 8x8px and 16x16px tiles !
+- [x] Finally choose between 8x8px and 16x16px tiles !
 - [ ] Hero Robot animation
 - [ ] Timmy animation
-- [ ] Terrain tileset
+- [x] Terrain tileset
 - [ ] Objects/Decals tileset
 	- [ ] random objects
 	- [ ] outside characters
 	- [ ] radioactive stuff
 	- [ ] placeholder for lights
+- [ ] Add more tiles to terrain tileset
 	
 ### Audio :
 - [ ] Battery is charging sound
