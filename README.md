@@ -1,4 +1,4 @@
-## [Hello there !](https://www.youtube.com/watch?v=rEq1Z0bjdwc)
+## [Hello there !](https://www.youtube.com/watch?v=rEq1Z0bjdwc&t=6s)
 I am currently making this game for Ludum Dare 39 !
 Everything will most likely change a lot until the Compo deadline, but you can already try it now if you're bored :)
 
