@@ -1,4 +1,5 @@
 ### Programming :
+- [ ] Win/lose conditions !
 - [ ] Implement sound
 - [ ] Generating map from everything
 	- [ ] map tiles from terrain_tilemap
