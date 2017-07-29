@@ -5,6 +5,7 @@
 	- [ ] placing hero and decals from obj_tilemap
 	- [ ] placing lights from light_tilemap
 - [ ] Polish HUD
+- [ ] Battery HUD, just like a phone icon
 - [ ] Refactoring ?
 - [ ] Bug checking ?
 - [ ] Optimization ?
