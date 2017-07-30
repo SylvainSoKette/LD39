@@ -1,6 +1,7 @@
 package;
 
 import flixel.FlxG;
+import flixel.FlxObject;
 import flixel.util.FlxColor;
 import flixel.FlxSprite;
 import flixel.system.FlxSound;
@@ -15,7 +16,6 @@ class Player extends FlxSprite
 	private var _jumpPower:Int = 32;
 	private var _moveSpeed:Int = 80;
 	private var _power:Float;
-	private var _direction:Bool;
 	private var _blinkPower:Float = 3.5;
 	
 	private var _sndTurboJump:FlxSound;
@@ -27,7 +27,11 @@ class Player extends FlxSprite
 	public function new(?X:Float=0, ?Y:Float=0) {
 		super(X, Y);
 		
-		this.makeGraphic(Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT, FlxColor.CYAN);
+		//this.makeGraphic(Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT, FlxColor.CYAN);
+		this.loadGraphic(AssetPaths.robot__png, true, 16, 16);
+		this.animation.add("idle", [0, 1, 2, 3, 4, 5, 6, 7], 6, true);
+		this.animation.add("move", [8, 9, 10, 11, 12, 13, 14, 15], 6, true);
+		
 		this.setSize(Blackboard.TILE_WIDTH - 2, Blackboard.TILE_HEIGHT - 2);
 		this.offset.set(1, 2);
 		this.drag.x = this.drag.y = _moveSpeed * 16;
@@ -35,8 +39,10 @@ class Player extends FlxSprite
 		this.maxVelocity.x = _moveSpeed;
 		this.maxVelocity.y = 313;
 		
-		this._direction = true; // true is left, false is right
 		this._power = 1.0;
+		
+		setFacingFlip(FlxObject.LEFT, true, false);
+		setFacingFlip(FlxObject.RIGHT, false, false);
 		
 		_sndTurboJump = FlxG.sound.load(AssetPaths.turbojump__wav);
 		_sndTurbo = FlxG.sound.load(AssetPaths.turbo__wav);
@@ -44,7 +50,7 @@ class Player extends FlxSprite
 		//_sndMove = FlxG.sound.load(AssetPaths.move__wav);
 		_sndBlink = FlxG.sound.load(AssetPaths.blink2__wav);
 		
-		_sndHover.volume = 0.35;
+		_sndHover.volume = 0.20;
 	}
 	
 	override public function update(elapsed:Float):Void {
@@ -52,6 +58,12 @@ class Player extends FlxSprite
 		
 		if (_power > 1.0) {
 			_power = 1.0;
+		}
+		
+		if (this.velocity.x != 0) {
+			animation.play("move");
+		} else {
+			animation.play("idle");
 		}
 		
 		super.update(elapsed);
@@ -64,7 +76,8 @@ class Player extends FlxSprite
 			this.drainPower(0.0005);
 			//_sndMove.play();
 		}
-		this._direction = true;
+		this.facing = FlxObject.LEFT;
+		//this._direction = true;
 	}
 	
 	public function moveRight():Void {
@@ -73,7 +86,8 @@ class Player extends FlxSprite
 			this.drainPower(0.0005);
 			//_sndMove.play();
 		}
-		this._direction = false;
+		this.facing = FlxObject.RIGHT;
+		//this._direction = false;
 	}
 	
 	public function turbo():Void {
@@ -107,7 +121,7 @@ class Player extends FlxSprite
 	public function blink():Void {
 		if (hasPowerLeft()) {
 			FlxG.camera.flash(0xff0066ff, 0.5);
-			if (this._direction) {
+			if (this.facing == FlxObject.LEFT) {
 				if (this.x > Blackboard.TILE_WIDTH * this._blinkPower + Blackboard.TILE_WIDTH) {
 					this.x -= Blackboard.TILE_WIDTH * this._blinkPower;
 				} else {
