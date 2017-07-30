@@ -1,6 +1,6 @@
 ## [Hello there !](https://www.youtube.com/watch?v=rEq1Z0bjdwc&t=6s)
-I am currently making this game for Ludum Dare 39 !
-Everything will most likely change a lot until the Compo deadline, but you can already try it now if you're bored :)
+I made this game for Ludum Dare 39 !
+I may continue working on this game later, I'll probably do it on a branch though.
 
 ## Requirements
 The game was built using [Haxe](https://haxe.org/download/) 3.4.1
