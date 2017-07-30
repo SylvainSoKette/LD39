@@ -32,8 +32,8 @@ class Player extends FlxSprite
 		this.animation.add("idle", [0, 1, 2, 3, 4, 5, 6, 7], 6, true);
 		this.animation.add("move", [8, 9, 10, 11, 12, 13, 14, 15], 6, true);
 		
-		this.setSize(Blackboard.TILE_WIDTH - 2, Blackboard.TILE_HEIGHT - 2);
-		this.offset.set(1, 2);
+		this.setSize(Blackboard.TILE_WIDTH - 4, Blackboard.TILE_HEIGHT - 2);
+		this.offset.set(2, 2);
 		this.drag.x = this.drag.y = _moveSpeed * 16;
 		this.acceleration.y = 800;
 		this.maxVelocity.x = _moveSpeed;
