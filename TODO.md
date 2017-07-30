@@ -53,5 +53,5 @@
 
 ### Other :
 
-- [ ] Battery charge mechanics needs to be clearer
-- [ ] Grabbing mechanic not clear enough
+- [x] Battery charge mechanics needs to be clearer
+- [x] Grabbing mechanic not clear enough
