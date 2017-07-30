@@ -36,6 +36,7 @@ class HUD extends FlxTypedGroup<FlxSprite>
 		add(_txtBattery);
 		
 		_txtWin = new SkText("", 16, true);
+		_txtWin.x = 0;
 		_txtWin.color = FlxColor.fromRGB(32, 168, 32, 255);
 		add(_txtWin);
 		
@@ -61,7 +62,7 @@ class HUD extends FlxTypedGroup<FlxSprite>
 		}
 		
 		if (win) {
-			_txtWin.text = "Thank you for saving Timmy !!";
+			_txtWin.text = "Thank you Robot !!";
 		}
 	}
 }
