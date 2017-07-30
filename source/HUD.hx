@@ -5,6 +5,7 @@ import Math;
 import flixel.FlxSprite;
 import flixel.group.FlxGroup.FlxTypedGroup;
 import flixel.text.FlxText;
+import flixel.util.FlxColor;
 
 import SkText;
 
@@ -14,14 +15,19 @@ import SkText;
  */
 class HUD extends FlxTypedGroup<FlxSprite>
 {
-	private var _txtPower:SkText;
+	private var _bgHUD:FlxSprite;
+	private var _imgBattery:FlxSprite;
 	
 	public function new() 
 	{
 		super();
 		
-		_txtPower = new SkText("bap", 8, false);
-		add(_txtPower);
+		_bgHUD = new FlxSprite(0, 0, AssetPaths.HUD__png);
+		add(_bgHUD);
+		
+		_imgBattery = new FlxSprite(221, 5);
+		_imgBattery.makeGraphic(12, 5, FlxColor.WHITE);
+		add(_imgBattery);
 		
 		forEach(function(spr:FlxSprite)
 		{
@@ -30,6 +36,14 @@ class HUD extends FlxTypedGroup<FlxSprite>
 	}
 	
 	public function updateHUD(power:Float):Void {
-		_txtPower.text = "Battery " + Math.round(power*100) + "%";
+		_imgBattery.scale.set(power, 1.0);
+		
+		if (power < 0.2) {
+			_imgBattery.color = 0xffaa0000;
+		} else if (power < 0.5) {
+			_imgBattery.color = 0xffaa6633;
+		} else {
+			_imgBattery.color = 0xff00aa00;
+		}
 	}
 }
