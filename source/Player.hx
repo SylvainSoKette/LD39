@@ -57,9 +57,15 @@ class Player extends FlxSprite
 	override public function update(elapsed:Float):Void {
 		cantGetOutOfMap();
 		
+		#if release
 		if (_power > 1.0) {
 			_power = 1.0;
 		}
+		#end
+		
+		#if debug
+		_power = 472364723.00;
+		#end
 		
 		if (this.velocity.x != 0) {
 			animation.play("move");

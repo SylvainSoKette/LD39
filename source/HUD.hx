@@ -18,6 +18,7 @@ class HUD extends FlxTypedGroup<FlxSprite>
 	private var _bgHUD:FlxSprite;
 	private var _imgBattery:FlxSprite;
 	private var _txtBattery:SkText;
+	private var _txtWin:SkText;
 	
 	public function new() 
 	{
@@ -34,13 +35,17 @@ class HUD extends FlxTypedGroup<FlxSprite>
 		_txtBattery.color = FlxColor.fromRGB(168, 32, 32, 255);
 		add(_txtBattery);
 		
+		_txtWin = new SkText("", 16, true);
+		_txtWin.color = FlxColor.fromRGB(32, 168, 32, 255);
+		add(_txtWin);
+		
 		forEach(function(spr:FlxSprite)
 		{
 			spr.scrollFactor.set(0, 0);
 		});
 	}
 	
-	public function updateHUD(power:Float, powerless:Bool):Void {
+	public function updateHUD(power:Float, powerless:Bool, win:Bool):Void {
 		_imgBattery.scale.set(power, 1.0);
 		
 		if (power < 0.2) {
@@ -53,6 +58,10 @@ class HUD extends FlxTypedGroup<FlxSprite>
 		
 		if (powerless) {
 			_txtBattery.text = "Out of battery... Press 'R' to restart !";
+		}
+		
+		if (win) {
+			_txtWin.text = "Thank you for saving Timmy !!";
 		}
 	}
 }

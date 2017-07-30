@@ -15,13 +15,23 @@ class Timmy extends FlxSprite
 	public function new(?X:Float=0, ?Y:Float=0) {
 		super(X, Y);
 		
-		this.makeGraphic(Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT, FlxColor.YELLOW);
+		//this.makeGraphic(Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT, FlxColor.YELLOW);
+		
+		this.loadGraphic(AssetPaths.timmy__png, true, 16, 16);
+		this.animation.add("idle", [0, 1, 2, 3, 4, 5, 6, 7], 6, true);
+		
 		this.setSize(Blackboard.TILE_WIDTH - 2, Blackboard.TILE_HEIGHT - 2);
 		this.offset.set(1, 2);
 		
 		this.acceleration.y = 800; // timmy can fall too !
 		
 		this._grabbed = false;
+	}
+	
+	override public function update(elapsed:Float):Void {
+		animation.play("idle");
+		
+		super.update(elapsed);
 	}
 	
 	public function moveTimmy(X:Float, Y:Float) {

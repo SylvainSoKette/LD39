@@ -25,6 +25,7 @@ class PlayState extends FlxState
 	private var _player:Player;
 	private var _timmy:Timmy;
 	private var _hud:HUD;
+	private var _win:Bool;
 	
 	override public function create():Void {
 		FlxG.mouse.visible = false;
@@ -46,12 +47,8 @@ class PlayState extends FlxState
 		_objectmap = new FlxTilemap();
 		_lightmap = new FlxTilemap();
 		_lightlayer = new FlxTypedGroup<FlxSprite>();
+		_win = false;
 		initMap();
-		
-		// timmy
-		
-		// player
-		
 		
 		// HUD
 		_hud = new HUD();
@@ -81,15 +78,15 @@ class PlayState extends FlxState
 		}
 		
 		if (_player.overlaps(_lightlayer)) {
-			_player.drainPower( -0.02);
+			_player.drainPower( -0.005);
 		}
 		
 		if (_timmy.x < 6*Blackboard.TILE_WIDTH && _timmy.y < 6*Blackboard.TILE_HEIGHT) {
-			trace("win !");
-			FlxG.switchState(new MenuState());
+			_win = true;
+			_timmy.drop();
 		}
 		
-		_hud.updateHUD(_player.getPower(), !_player.hasPowerLeft());
+		_hud.updateHUD(_player.getPower(), !_player.hasPowerLeft(), _win);
 		
 		super.update(elapsed);
 	}

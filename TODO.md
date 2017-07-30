@@ -1,9 +1,9 @@
 ### Programming :
 - [x] Intro screen
 - [x] Explain screen
-- [ ] Win screen
+- [x] Win screen
 - [x] Win/lose conditions !
-- [ ] Implement sound
+- [x] Implement sound
 - [x] Generating map from everything
 	- [x] map tiles from terrain_tilemap
 	- [x] placing hero and decals from obj_tilemap
@@ -19,15 +19,15 @@
 - [x] Intro screen
 - [x] Explain screen
 - [x] Finalize explain screen with robot blueprint
-- [ ] Win screen
+- [x] Win screen
 - [x] Finally choose between 8x8px and 16x16px tiles !
 - [x] Hero Robot animation
-- [ ] Timmy animation
+- [x] Timmy animation
 - [x] Terrain tileset
-- [ ] Objects/Decals tileset
-	- [ ] random objects
-	- [ ] outside characters
-	- [ ] radioactive stuff
+- [x] Objects/Decals tileset
+	- [x] random objects
+	- [x] outside characters
+	- [x] radioactive stuff
 	- [x] placeholder for lights
 - [x] Add game icon
 - [ ] Add more tiles to terrain tileset
@@ -45,9 +45,9 @@
 - [ ] Some music ?
 	
 ### Mapping :
-- [ ] Terrain
-- [ ] Decals
-- [ ] Lights
+- [x] Terrain
+- [x] Decals
+- [x] Lights
 - [x] Player
 - [x] Timmy
 
