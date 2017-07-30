@@ -131,6 +131,9 @@ class PlayState extends FlxState
 		FlxG.worldBounds.right = Blackboard.MAP_WIDTH * Blackboard.TILE_WIDTH;
 		FlxG.worldBounds.top = 0;
 		FlxG.worldBounds.bottom = Blackboard.MAP_HEIGHT * Blackboard.TILE_HEIGHT;
+		#if debug
+			trace("Terrain loaded !");
+		#end
 	}
 	
 	private function initObjects():Void {
@@ -152,6 +155,9 @@ class PlayState extends FlxState
 				}
 			}
 		}
+		#if debug
+			trace("Objects loaded !");
+		#end
 	}
 	
 	private function initLights():Void {
@@ -171,6 +177,9 @@ class PlayState extends FlxState
 				}
 			}
 		}
+		#if debug
+			trace("Lights loaded !");
+		#end
 	}
 	
 	private function initBackground():Void {

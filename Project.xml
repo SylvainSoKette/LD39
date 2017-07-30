@@ -79,4 +79,13 @@
 	<!-- _________________________________ Custom _______________________________ -->
 	
 	<!--Place custom nodes like icons here (higher priority to override the HaxeFlixel icon)-->
+	<icon path="assets/images/icon.svg" />
+	
+	<!--
+	ie4uinit.exe -ClearIconCache
+	+ delete export
+	+ needs an .svg for icon
+	+ needs complete path
+	+ width and height should be the same as viewBox in svg
+	-->
 </project>

@@ -51,6 +51,7 @@ class Player extends FlxSprite
 		_sndBlink = FlxG.sound.load(AssetPaths.blink2__wav);
 		
 		_sndHover.volume = 0.20;
+		_sndTurbo.volume = 0.70;
 	}
 	
 	override public function update(elapsed:Float):Void {
@@ -75,9 +76,8 @@ class Player extends FlxSprite
 			this.acceleration.x = -this.drag.x;
 			this.drainPower(0.0005);
 			//_sndMove.play();
+			this.facing = FlxObject.LEFT;
 		}
-		this.facing = FlxObject.LEFT;
-		//this._direction = true;
 	}
 	
 	public function moveRight():Void {
@@ -85,9 +85,8 @@ class Player extends FlxSprite
 			this.acceleration.x = this.drag.x;
 			this.drainPower(0.0005);
 			//_sndMove.play();
+			this.facing = FlxObject.RIGHT;
 		}
-		this.facing = FlxObject.RIGHT;
-		//this._direction = false;
 	}
 	
 	public function turbo():Void {
@@ -148,7 +147,7 @@ class Player extends FlxSprite
 	}
 	
 	private function hasPowerLeft():Bool {
-		return (this._power > 0);
+		return (this._power > 0.01);
 	}
 	
 	private function negativePowerNotAllowed():Void {

@@ -1,7 +1,7 @@
 package;
 
-import lime.system.System;
-//import openfl.system.System;
+//import lime.system.System;
+import openfl.system.System;
 
 import flixel.FlxG;
 import flixel.FlxSprite;
@@ -24,8 +24,8 @@ class MenuState extends FlxState
 		if (FlxG.keys.justPressed.SPACE)
 			FlxG.switchState(new ExplainState());
 		if (FlxG.keys.justPressed.ESCAPE)
-			System.exit(0); // lime
-			//System.exit(); // openfl
+			//System.exit(0); // lime
+			System.exit(); // openfl
 		
 		super.update(elapsed);
 	}
