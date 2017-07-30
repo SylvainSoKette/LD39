@@ -1,8 +1,10 @@
 package;
 
+import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.system.FlxAssets.FlxGraphicAsset;
 import flixel.util.FlxColor;
+import flixel.system.FlxSound;
 
 /**
  * ...
@@ -11,6 +13,7 @@ import flixel.util.FlxColor;
 class Timmy extends FlxSprite 
 {
 	private var _grabbed:Bool;
+	private var _sndHey:FlxSound;
 	
 	public function new(?X:Float=0, ?Y:Float=0) {
 		super(X, Y);
@@ -26,6 +29,9 @@ class Timmy extends FlxSprite
 		this.acceleration.y = 800; // timmy can fall too !
 		
 		this._grabbed = false;
+		
+		_sndHey = FlxG.sound.load(AssetPaths.hey__ogg);
+		_sndHey.volume = 0.5;
 	}
 	
 	override public function update(elapsed:Float):Void {
@@ -42,6 +48,7 @@ class Timmy extends FlxSprite
 	public function grab():Void {
 		this._grabbed = true;
 		this.acceleration.y = 0;
+		_sndHey.play();
 	}
 	
 	public function drop():Void {

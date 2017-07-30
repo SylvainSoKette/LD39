@@ -46,9 +46,9 @@ class Player extends FlxSprite
 		
 		_sndTurboJump = FlxG.sound.load(AssetPaths.turbojump__wav);
 		_sndTurbo = FlxG.sound.load(AssetPaths.turbo__wav);
-		_sndHover = FlxG.sound.load(AssetPaths.hover2__wav);
+		_sndHover = FlxG.sound.load(AssetPaths.hover__wav);
 		//_sndMove = FlxG.sound.load(AssetPaths.move__wav);
-		_sndBlink = FlxG.sound.load(AssetPaths.blink2__wav);
+		_sndBlink = FlxG.sound.load(AssetPaths.blink__wav);
 		
 		_sndHover.volume = 0.20;
 		_sndTurbo.volume = 0.70;
