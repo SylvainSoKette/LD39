@@ -1,6 +1,6 @@
 ## [Hello there !](https://www.youtube.com/watch?v=rEq1Z0bjdwc&t=6s)
 I made this game for Ludum Dare 39 !
-I may continue working on this game later, I'll probably do it on a branch though.
+I may continue working on it later, I'll probably do it on a branch though.
 
 ## Requirements
 The game was built using [Haxe](https://haxe.org/download/) 3.4.1
