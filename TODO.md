@@ -1,5 +1,5 @@
 ### Programming :
-- [ ] Intro screen
+- [x] Intro screen
 - [ ] Explain screen
 - [ ] Win screen
 - [ ] Win/lose conditions !
