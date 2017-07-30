@@ -30,7 +30,7 @@ haxelib set openfl 3.6.1
 ## Run the game
 Open a terminal/command prompt and go to the game directory
 ```
-haxelib run lime run "Project.xml" neko -debug
+haxelib run lime run "Project.xml" neko -release
 ```
 
 ## Compile
@@ -38,7 +38,7 @@ Also in the game directory, you can build the game to your platform
 
 (You'll need a compiler installed for that)
 ```
-haxelib run lime run "Project.xml" PLATFORM -debug
+haxelib run lime run "Project.xml" PLATFORM -release
 ```
 PLATFORM can be :
 * mac

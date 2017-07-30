@@ -153,7 +153,6 @@ class PlayState extends FlxState
 						_objectmap.setTile(tx, ty, -1);
 						_timmy = new Timmy(tx * Blackboard.TILE_WIDTH, ty * Blackboard.TILE_HEIGHT);
 					default :
-						trace("Nothing special to load on tile X:"+ tx +" Y:"+ ty);
 				}
 			}
 		}
@@ -175,7 +174,6 @@ class PlayState extends FlxState
 						_lightmap.setTile(tx, ty, -1);
 						_lightlayer.add(new Nuclearlight(tx * Blackboard.TILE_WIDTH, ty * Blackboard.TILE_HEIGHT));
 					default : // everything else is for decoration
-						trace("Nothing special to load on tile X:"+ tx +" Y:"+ ty);
 				}
 			}
 		}
