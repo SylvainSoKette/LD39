@@ -1,6 +1,6 @@
 ### Programming :
 - [x] Intro screen
-- [ ] Explain screen
+- [x] Explain screen
 - [ ] Win screen
 - [ ] Win/lose conditions !
 - [ ] Implement sound
@@ -16,7 +16,8 @@
 		
 ### 2D art :
 - [x] Intro screen
-- [ ] Explain screen
+- [x] Explain screen
+- [ ] Finalize explain screen with robot blueprint
 - [ ] Win screen
 - [x] Finally choose between 8x8px and 16x16px tiles !
 - [ ] Hero Robot animation
@@ -44,5 +45,5 @@
 - [ ] Terrain
 - [ ] Decals
 - [ ] Lights
-- [ ] Player
-- [ ] Timmy
+- [x] Player
+- [x] Timmy
