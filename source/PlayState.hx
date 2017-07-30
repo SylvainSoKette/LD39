@@ -126,7 +126,7 @@ class PlayState extends FlxState
 	}
 	
 	private function initTerrain():Void {
-		_terrainmap.loadMapFromCSV(AssetPaths.map2_terrain__csv, AssetPaths.tileset__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
+		_terrainmap.loadMapFromCSV(AssetPaths.map_terrain__csv, AssetPaths.tileset__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
 		FlxG.worldBounds.left = 0;
 		FlxG.worldBounds.right = Blackboard.MAP_WIDTH * Blackboard.TILE_WIDTH;
 		FlxG.worldBounds.top = 0;
@@ -134,7 +134,7 @@ class PlayState extends FlxState
 	}
 	
 	private function initObjects():Void {
-		_objectmap.loadMapFromCSV(AssetPaths.map2_obj__csv, AssetPaths.decals__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
+		_objectmap.loadMapFromCSV(AssetPaths.map_obj__csv, AssetPaths.decals__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
 		for (ty in 0 ... _objectmap.heightInTiles) {
 			for (tx in 0 ... _objectmap.widthInTiles) {
 				var tileValue:Int = _objectmap.getTile(tx, ty);
@@ -155,7 +155,7 @@ class PlayState extends FlxState
 	}
 	
 	private function initLights():Void {
-		_lightmap.loadMapFromCSV(AssetPaths.map2_light__csv, AssetPaths.decals__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
+		_lightmap.loadMapFromCSV(AssetPaths.map_light__csv, AssetPaths.decals__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
 		for (ty in 0 ... _lightmap.heightInTiles) {
 			for (tx in 0 ... _lightmap.widthInTiles) {
 				var tileValue:Int = _lightmap.getTile(tx, ty);

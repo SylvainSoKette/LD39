@@ -33,7 +33,7 @@ class Player extends FlxSprite
 		this.drag.x = this.drag.y = _moveSpeed * 16;
 		this.acceleration.y = 800;
 		this.maxVelocity.x = _moveSpeed;
-		this.maxVelocity.y = 400;
+		this.maxVelocity.y = 313;
 		
 		this._direction = true; // true is left, false is right
 		this._power = 1.0;
