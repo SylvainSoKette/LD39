@@ -80,7 +80,7 @@ class Player extends FlxSprite
 		if (hasPowerLeft()) {
 			FlxG.camera.shake(0.005, 0.05);
 			this.velocity.x *= 3;
-			this.drainPower(0.001);
+			this.drainPower(0.0007);
 			_sndTurbo.play();
 		}
 	}

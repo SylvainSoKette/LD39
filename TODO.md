@@ -15,7 +15,7 @@
 - [ ] Optimization ?
 		
 ### 2D art :
-- [ ] Intro screen
+- [x] Intro screen
 - [ ] Explain screen
 - [ ] Win screen
 - [x] Finally choose between 8x8px and 16x16px tiles !
