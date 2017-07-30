@@ -43,6 +43,8 @@ class Player extends FlxSprite
 		_sndHover = FlxG.sound.load(AssetPaths.hover2__wav);
 		//_sndMove = FlxG.sound.load(AssetPaths.move__wav);
 		_sndBlink = FlxG.sound.load(AssetPaths.blink2__wav);
+		
+		_sndHover.volume = 0.35;
 	}
 	
 	override public function update(elapsed:Float):Void {

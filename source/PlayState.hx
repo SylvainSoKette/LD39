@@ -19,13 +19,12 @@ class PlayState extends FlxState
 	private var _background:FlxTypedGroup<FlxSprite>;
 	private var _terrainmap:FlxTilemap;
 	private var _objectmap:FlxTilemap;
-	
 	private var _lightmap:FlxTilemap;
-	private var _lightlayer:FlxTypedGroup<Light>;
+	private var _lightlayer:FlxTypedGroup<FlxSprite>;
 	
 	private var _player:Player;
-	private var _hud:HUD;
 	private var _timmy:Timmy;
+	private var _hud:HUD;
 	
 	override public function create():Void {
 		FlxG.mouse.visible = false;
@@ -46,15 +45,13 @@ class PlayState extends FlxState
 		_terrainmap = new FlxTilemap();
 		_objectmap = new FlxTilemap();
 		_lightmap = new FlxTilemap();
-		_lightlayer = new FlxTypedGroup<Light>();
+		_lightlayer = new FlxTypedGroup<FlxSprite>();
 		initMap();
 		
 		// timmy
-		_timmy = new Timmy(128, 8);
+		
 		// player
-		_player = new Player(32 , 8);
-		camera.follow(_player, FlxCameraFollowStyle.PLATFORMER);
-		camera.setScrollBoundsRect(0, 0, 64 * Blackboard.TILE_WIDTH , 256 * Blackboard.TILE_HEIGHT);
+		
 		
 		// HUD
 		_hud = new HUD();
@@ -123,22 +120,54 @@ class PlayState extends FlxState
 	}
 	
 	private function initMap():Void {
-		_terrainmap.loadMapFromCSV(AssetPaths.map_terrain__csv, AssetPaths.tileset__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
+		initTerrain();
+		initObjects();
+		initLights();
+	}
+	
+	private function initTerrain():Void {
+		_terrainmap.loadMapFromCSV(AssetPaths.map2_terrain__csv, AssetPaths.tileset__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
 		FlxG.worldBounds.left = 0;
 		FlxG.worldBounds.right = Blackboard.MAP_WIDTH * Blackboard.TILE_WIDTH;
 		FlxG.worldBounds.top = 0;
 		FlxG.worldBounds.bottom = Blackboard.MAP_HEIGHT * Blackboard.TILE_HEIGHT;
-		
-		_lightmap.loadMapFromCSV(AssetPaths.map_light__csv, AssetPaths.tileset__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
+	}
+	
+	private function initObjects():Void {
+		_objectmap.loadMapFromCSV(AssetPaths.map2_obj__csv, AssetPaths.decals__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
+		for (ty in 0 ... _objectmap.heightInTiles) {
+			for (tx in 0 ... _objectmap.widthInTiles) {
+				var tileValue:Int = _objectmap.getTile(tx, ty);
+				switch (tileValue) {
+					case 3: // player
+						_objectmap.setTile(tx, ty, -1);
+						_player = new Player(tx * Blackboard.TILE_WIDTH, ty * Blackboard.TILE_HEIGHT);
+						camera.follow(_player, FlxCameraFollowStyle.PLATFORMER);
+						camera.setScrollBoundsRect(0, 0, _objectmap.widthInTiles * Blackboard.TILE_WIDTH , _objectmap.heightInTiles * Blackboard.TILE_HEIGHT);
+					case 4: // timmy
+						_objectmap.setTile(tx, ty, -1);
+						_timmy = new Timmy(tx * Blackboard.TILE_WIDTH, ty * Blackboard.TILE_HEIGHT);
+					default :
+						trace("Nothing special to load on tile X:"+ tx +" Y:"+ ty);
+				}
+			}
+		}
+	}
+	
+	private function initLights():Void {
+		_lightmap.loadMapFromCSV(AssetPaths.map2_light__csv, AssetPaths.decals__png, Blackboard.TILE_WIDTH, Blackboard.TILE_HEIGHT);
 		for (ty in 0 ... _lightmap.heightInTiles) {
 			for (tx in 0 ... _lightmap.widthInTiles) {
 				var tileValue:Int = _lightmap.getTile(tx, ty);
 				switch (tileValue) {
-					case 45:
+					case 1: // sunlight
 						_lightmap.setTile(tx, ty, -1);
-						_lightlayer.add(new Light(tx * Blackboard.TILE_WIDTH, ty * Blackboard.TILE_HEIGHT, FlxColor.fromRGB(255, 255, 153, 32)));
-					default :
-						trace("Nothing to load on tile X:"+ tx +" Y:"+ ty);
+						_lightlayer.add(new Sunlight(tx * Blackboard.TILE_WIDTH, ty * Blackboard.TILE_HEIGHT));
+					case 2: // nuclear glow
+						_lightmap.setTile(tx, ty, -1);
+						_lightlayer.add(new Nuclearlight(tx * Blackboard.TILE_WIDTH, ty * Blackboard.TILE_HEIGHT));
+					default : // everything else is for decoration
+						trace("Nothing special to load on tile X:"+ tx +" Y:"+ ty);
 				}
 			}
 		}
