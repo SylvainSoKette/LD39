@@ -17,6 +17,7 @@ class HUD extends FlxTypedGroup<FlxSprite>
 {
 	private var _bgHUD:FlxSprite;
 	private var _imgBattery:FlxSprite;
+	private var _txtBattery:SkText;
 	
 	public function new() 
 	{
@@ -29,13 +30,17 @@ class HUD extends FlxTypedGroup<FlxSprite>
 		_imgBattery.makeGraphic(12, 5, FlxColor.WHITE);
 		add(_imgBattery);
 		
+		_txtBattery = new SkText("", 8, false);
+		_txtBattery.color = FlxColor.fromRGB(168, 32, 32, 255);
+		add(_txtBattery);
+		
 		forEach(function(spr:FlxSprite)
 		{
 			spr.scrollFactor.set(0, 0);
 		});
 	}
 	
-	public function updateHUD(power:Float):Void {
+	public function updateHUD(power:Float, powerless:Bool):Void {
 		_imgBattery.scale.set(power, 1.0);
 		
 		if (power < 0.2) {
@@ -44,6 +49,10 @@ class HUD extends FlxTypedGroup<FlxSprite>
 			_imgBattery.color = 0xffaa6633;
 		} else {
 			_imgBattery.color = 0xff00aa00;
+		}
+		
+		if (powerless) {
+			_txtBattery.text = "Out of battery... Press 'R' to restart !";
 		}
 	}
 }

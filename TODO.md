@@ -2,7 +2,7 @@
 - [x] Intro screen
 - [x] Explain screen
 - [ ] Win screen
-- [ ] Win/lose conditions !
+- [x] Win/lose conditions !
 - [ ] Implement sound
 - [x] Generating map from everything
 	- [x] map tiles from terrain_tilemap
@@ -13,11 +13,12 @@
 - [ ] Refactoring ?
 - [ ] Bug checking ?
 - [ ] Optimization ?
+- [ ] Add gibs effect to jump and blink
 		
 ### 2D art :
 - [x] Intro screen
 - [x] Explain screen
-- [ ] Finalize explain screen with robot blueprint
+- [x] Finalize explain screen with robot blueprint
 - [ ] Win screen
 - [x] Finally choose between 8x8px and 16x16px tiles !
 - [x] Hero Robot animation
@@ -27,9 +28,11 @@
 	- [ ] random objects
 	- [ ] outside characters
 	- [ ] radioactive stuff
-	- [ ] placeholder for lights
+	- [x] placeholder for lights
 - [x] Add game icon
 - [ ] Add more tiles to terrain tileset
+- [ ] Typo in explain screen: powerful
+- [ ] Explain screen has too much stuff going on
 	
 ### Audio :
 - [ ] Battery is charging sound
@@ -51,4 +54,4 @@
 ### Other :
 
 - [ ] Battery charge mechanics needs to be clearer
-- [ ] Grabbing mechanic note clear enough
+- [ ] Grabbing mechanic not clear enough

@@ -81,10 +81,15 @@ class PlayState extends FlxState
 		}
 		
 		if (_player.overlaps(_lightlayer)) {
-			_player.drainPower( -0.0012);
+			_player.drainPower( -0.02);
 		}
 		
-		_hud.updateHUD(_player.getPower());
+		if (_timmy.x < 6*Blackboard.TILE_WIDTH && _timmy.y < 6*Blackboard.TILE_HEIGHT) {
+			trace("win !");
+			FlxG.switchState(new MenuState());
+		}
+		
+		_hud.updateHUD(_player.getPower(), !_player.hasPowerLeft());
 		
 		super.update(elapsed);
 	}

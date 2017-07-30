@@ -74,7 +74,7 @@ class Player extends FlxSprite
 	public function moveLeft():Void {
 		if (hasPowerLeft()) {
 			this.acceleration.x = -this.drag.x;
-			this.drainPower(0.0005);
+			this.drainPower(0.0002);
 			//_sndMove.play();
 			this.facing = FlxObject.LEFT;
 		}
@@ -83,7 +83,7 @@ class Player extends FlxSprite
 	public function moveRight():Void {
 		if (hasPowerLeft()) {
 			this.acceleration.x = this.drag.x;
-			this.drainPower(0.0005);
+			this.drainPower(0.0002);
 			//_sndMove.play();
 			this.facing = FlxObject.RIGHT;
 		}
@@ -93,7 +93,7 @@ class Player extends FlxSprite
 		if (hasPowerLeft()) {
 			FlxG.camera.shake(0.005, 0.05);
 			this.velocity.x *= 3;
-			this.drainPower(0.0007);
+			this.drainPower(0.0004);
 			_sndTurbo.play();
 		}
 	}
@@ -102,7 +102,7 @@ class Player extends FlxSprite
 		if (hasPowerLeft()) {
 			FlxG.camera.shake(0.002, 0.05);
 			this.velocity.y = -50;
-			this.drainPower(0.002);
+			this.drainPower(0.0015);
 			_sndHover.play();
 		}
 	}
@@ -112,7 +112,7 @@ class Player extends FlxSprite
 			FlxG.camera.flash(FlxColor.ORANGE, 0.25);
 			FlxG.camera.shake(0.025, 0.25);
 			this.velocity.y = - this.maxVelocity.y;
-			this.drainPower(0.1);
+			this.drainPower(0.04);
 			_sndTurboJump.play();
 		}
 	}
@@ -146,8 +146,8 @@ class Player extends FlxSprite
 		this._power -= amount;
 	}
 	
-	private function hasPowerLeft():Bool {
-		return (this._power > 0.01);
+	public function hasPowerLeft():Bool {
+		return (this._power > 0.001);
 	}
 	
 	private function negativePowerNotAllowed():Void {
