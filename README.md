@@ -1,6 +1,6 @@
 ## [Hello there !](https://www.youtube.com/watch?v=rEq1Z0bjdwc&t=6s)
-I am currently making this game for Ludum Dare 39 !
-Everything will most likely change a lot until the Compo deadline, but you can already try it now if you're bored :)
+I made this game for Ludum Dare 39 !
+I may continue working on it later, I'll probably do it on a branch though.
 
 ## Requirements
 The game was built using [Haxe](https://haxe.org/download/) 3.4.1
@@ -41,6 +41,6 @@ Also in the game directory, you can build the game to your platform
 haxelib run lime run "Project.xml" PLATFORM -release
 ```
 PLATFORM can be :
-* mac
 * ~~linux~~ (If anyone does it successfully, let me know !)
+* mac (Anyone using a mac can tell me if this works ? :D)
 * windows
