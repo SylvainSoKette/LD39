@@ -21,7 +21,7 @@ haxelib install lime
 haxelib install openfl
 ```
 
-But this part is **super important** and not optional ! :
+But this part is **super important** and not optional ! (flixel *should* set them to the correct version if it's your first install and do not update the libraries) :
 ```
 haxelib set lime 2.9.1
 haxelib set openfl 3.6.1
@@ -42,5 +42,5 @@ haxelib run lime run "Project.xml" PLATFORM -release
 ```
 PLATFORM can be :
 * mac
-* linux
+* ~~linux~~ (If anyone does it successfully, let me know !)
 * windows
