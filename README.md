@@ -42,5 +42,5 @@ haxelib run lime run "Project.xml" PLATFORM -release
 ```
 PLATFORM can be :
 * ~~linux~~ (If anyone does it successfully, let me know !)
-* mac (Anyone using a mac can tell me if this works ? :D)
+* mac (If anyone using a mac can tell me if this works, that would be great :D)
 * windows
